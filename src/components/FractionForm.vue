@@ -35,15 +35,11 @@
           />
         </v-col>
         <div v-if="i < fractions.length - 1" class="ma-auto">
-          <v-icon medium>
-            fas fa-plus
-          </v-icon>
+          <v-icon medium> fas fa-plus </v-icon>
         </div>
       </v-row>
-      <v-row class="col-2 align-center mt-0 ">
-        <v-icon medium class="my-auto">
-          fas fa-equals
-        </v-icon>
+      <v-row class="col-2 align-center mt-0">
+        <v-icon medium class="my-auto"> fas fa-equals </v-icon>
 
         <h1 class="col-2 align-center pa-10 d-flex">
           {{ result }}
@@ -100,17 +96,17 @@ export default {
     },
     validate() {
       const currentInput = event.target._value
-      const validationIsFailed = value =>
+      const validationIsFailed = (value) =>
         RegExp('^[1-9]?[0-9]?$').exec(value) === null
 
-      return this.fractions.map(fraction => {
+      return this.fractions.map((fraction) => {
         if (validationIsFailed(fraction.numerator)) {
           fraction.numerator = validationIsFailed(currentInput)
             ? 1
             : currentInput
         }
-        if (validationIsFailed(fraction.denomerator)) {
-          fraction.denomerator = validationIsFailed(currentInput)
+        if (validationIsFailed(fraction.denominator)) {
+          fraction.denominator = validationIsFailed(currentInput)
             ? 1
             : currentInput
         }
